@@ -1,0 +1,16 @@
+@import helper._
+@(todoForm: Form[TodoForm])(implicit messages: Messages)
+<html>
+<head>
+    <title>Todo</title>
+</head>
+<body>
+<h1>Todo登録</h1>
+@form(action = routes.TodoController.save()) {
+    <fieldset>
+    @inputText(todoForm("db.name"), '_label -> "名前")
+    </fieldset>
+    <input type="submit" value="登録">
+}
+</body>
+</html>

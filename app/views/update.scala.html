@@ -1,0 +1,19 @@
+@import helper._
+@(todoForm: Form[TodoForm])(implicit messages: Messages)
+<html>
+<head>
+    <title>Todo</title>
+</head>
+<body>
+<h1>Todo編集</h1>
+@form(action = routes.TodoController.update(0)) {
+<fieldset>
+    @inputText(todoForm("db.name"), '_label -> "名前")
+</fieldset>
+<input type="hidden" name="command" value="update">
+<input type="hidden" name="db.id" value='@todoForm("db.id").value'>
+<input type="submit" value="更新">
+<input type="button" value="削除" onclick="if (confirm('削除しますか?')) {this.form.command.value = 'delete';this.form.submit();}">
+}
+</body>
+</html>

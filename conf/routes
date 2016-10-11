@@ -1,0 +1,11 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
+GET     /todo/helloworld            controllers.TodoController.helloworld()
+GET     /todo/list                  controllers.TodoController.list()
+GET     /todo/new                   controllers.TodoController.create()
+POST    /todo                       controllers.TodoController.save()
+GET     /todo/:id                   controllers.TodoController.getTodo(id: Long)
+POST    /todo/:id                   controllers.TodoController.update(id: Long)
